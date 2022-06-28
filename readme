@@ -1,0 +1,16 @@
+dallinjdahl/s6-rc-user
+
+This repo is my personal setup for running a login session using s6-rc[1].
+Note that in order to have X run properly, you need to have previously
+run the following command[2]:
+
+setcap cap_sys_tty_config=+ep /usr/lib/Xorg
+
+The current setup allows you to customize services run on startup by
+customizing the entries in the graphic bundle.  The desktop can be
+brought up completely with the ops/begin script.
+
+[1] skarnet.org/software/s6-rc
+[2] skarnet.org/lists/supervision/2887.html
+
+This particular setup was inspired by [2].
