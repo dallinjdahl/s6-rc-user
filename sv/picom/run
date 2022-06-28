@@ -1,0 +1,3 @@
+#!/usr/bin/execlineb -P
+fdmove -c 2 1
+picom -m 1.0 --shadow-exclude name --no-fading-openclose

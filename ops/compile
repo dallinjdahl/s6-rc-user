@@ -1,0 +1,5 @@
+#!/bin/execlineb -P
+
+foreground { mkdir -p db }
+foreground { rm -rf db/current }
+s6-rc-compile db/current sv

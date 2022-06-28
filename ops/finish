@@ -1,0 +1,5 @@
+#!/bin/execlineb
+
+importas tty TTY
+backtick -E user { whoami }
+rm -rf /tmp/${user}/${tty}

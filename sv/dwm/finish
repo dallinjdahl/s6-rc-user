@@ -1,0 +1,4 @@
+#!/bin/execlineb
+importas tty TTY
+backtick -E user { whoami }
+s6-svscanctl -t /tmp/${user}/${tty}/s6

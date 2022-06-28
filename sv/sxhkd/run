@@ -1,0 +1,5 @@
+#!/usr/bin/execlineb -P
+importas home HOME
+cd $home
+fdmove -c 2 1
+sxhkd

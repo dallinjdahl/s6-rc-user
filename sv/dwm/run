@@ -1,0 +1,4 @@
+#!/usr/bin/execlineb -P
+importas home HOME
+cd $home
+dwm

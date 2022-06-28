@@ -1,0 +1,6 @@
+#!/usr/bin/execlineb -P
+importas tty TTY
+importas display DISPLAY
+
+X ${display} -displayfd 3 vt${tty}
+

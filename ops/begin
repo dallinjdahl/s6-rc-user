@@ -1,0 +1,29 @@
+#!/bin/execlineb -P
+importas tty TTY
+backtick -E user { whoami }
+
+define compiled /tmp/${user}/${tty}/compiled
+define live /tmp/${user}/${tty}/s6-rc
+define scan /tmp/${user}/${tty}/s6
+
+foreground {
+	mkdir -p ${scan}/.s6-svscan
+}
+foreground {
+	cp ops/finish ${scan}/.s6-svscan/
+}
+foreground {
+	cp -r db/current $compiled
+}
+piperw 4 3
+background {
+	fdclose 3
+	fdmove 0 4
+	foreground { redirfd -w 1 /dev/null cat }
+	foreground { s6-rc-init -l ${live} -c ${compiled} ${scan} }
+	s6-rc -l ${live} -u change graphic 
+}
+
+fdclose 4
+s6-svscan -d 3 $scan
+
