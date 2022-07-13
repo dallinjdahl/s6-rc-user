@@ -4,6 +4,7 @@ backtick -E user { whoami }
 
 define compiled /tmp/${user}/${tty}/compiled
 define live /tmp/${user}/${tty}/s6-rc
+export usrlive ${live}
 define scan /tmp/${user}/${tty}/s6
 
 foreground {
